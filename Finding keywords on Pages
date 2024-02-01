@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Locator</title>
+    <script>
+        function locateWord() {
+            // Get the text content of the body
+            var pageContent = document.body.innerText;
+
+            // Search for the word "wing"
+            var wordToFind = "wing";
+            var indexOfWord = pageContent.indexOf(wordToFind);
+
+            // Highlight the word if found
+            if (indexOfWord !== -1) {
+                var highlightedContent = pageContent.substring(0, indexOfWord) +
+                                         '<span style="background-color: yellow;">' +
+                                         wordToFind +
+                                         '</span>' +
+                                         pageContent.substring(indexOfWord + wordToFind.length);
+                document.body.innerHTML = highlightedContent;
+            } else {
+                alert("Word not found on this page.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>This is a sample webpage with the word "wing".</h1>
+    <p>There are various types of wings in nature.</p>
+    <button onclick="locateWord()">Locate the word "wing"</button>
+</body>
+</html>
